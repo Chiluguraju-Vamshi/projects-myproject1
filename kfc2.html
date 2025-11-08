@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KFC Menu</title>
+  <link rel="stylesheet" href="kfc.css">
+  <link rel="stylesheet" href="kfc.js">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/KFC_logo.svg/512px-KFC_logo.svg.png" alt="KFC Logo">
+    <h1>WELCOME TO KFC</h1>
+    <p>Pick what you like best</p>
+  </header>
+
+  <!-- Menu Form -->
+  <form onsubmit="calculateBill(); return false;">
+    <div class="menu">
+
+      <div class="item">
+        <img src="/html/images/kfc1.jpeg" alt="Original Recipe Chicken">
+        <h3>Original Recipe Chicken</h3>
+        <p class="price">₹200</p>
+        <label>Quantity:
+          <select id="chicken_qty" class="qty-btn">
+            <option value="0">0</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="item">
+        <img src="/html/images/burger.jpeg" alt="Zinger Burger">
+        <h3>Zinger Burger</h3>
+        <p class="price">₹150</p>
+        <label>Quantity:
+          <select id="zinger_qty" class="qty-btn">
+            <option value="0">0</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="item">
+        <img src="/html/images/pop.jpeg" alt="Popcorn Chicken">
+        <h3>Popcorn Chicken</h3>
+        <p class="price">₹180</p>
+        <label>Quantity:
+          <select id="popcorn_qty" class="qty-btn">
+            <option value="0">0</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="item">
+        <img src="/html/images/licensed-image.jpeg" alt="French Fries">
+        <h3>French Fries</h3>
+        <p class="price">₹100</p>
+        <label>Quantity:
+          <select id="fries_qty" class="qty-btn">
+            <option value="0">0</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="item">
+        <img src="/html/images/kfc3.webp" alt="Krusher">
+        <h3>Krusher</h3>
+        <p class="price">₹120</p>
+        <label>Quantity:
+          <select id="krusher_qty" class="qty-btn">
+            <option value="0">0</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option>
+          </select>
+        </label>
+      </div>
+
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Order</button>
+  </form>
+
+  <div id="bill"></div>
+<script>
+    const prices = {
+      chicken: 200,
+      zinger: 150,
+      popcorn: 180,
+      fries: 100,
+      krusher: 120
+    };
+
+    const taxRate = 0.05, maxitem = 17;
+
+    function calculateBill() {
+      const chickenQty = parseInt(document.getElementById("chicken_qty").value);
+      const zingerQty = parseInt(document.getElementById("zinger_qty").value);
+      const popcornQty = parseInt(document.getElementById(  "popcorn_qty").value);
+      const friesQty = parseInt(document.getElementById("fries_qty").value);
+      const krusherQty = parseInt(document.getElementById("krusher_qty").value);
+
+      const totalitems = chickenQty + zingerQty + popcornQty + friesQty + krusherQty;
+      if (totalitems > maxitem) {
+        alert("You can add up to 7 items only at a time.");
+        return;
+      }
+
+      const subtotal = (chickenQty * prices.chicken) + 
+                       (zingerQty * prices.zinger) +
+                       (popcornQty * prices.popcorn) +
+                       (friesQty * prices.fries) +
+                       (krusherQty * prices.krusher);
+
+      const tax = subtotal * taxRate;
+      const finalAmount = subtotal + tax;
+
+      const billDiv = document.getElementById("bill");
+      billDiv.style.display = "block";
+      billDiv.innerHTML = `
+        <h2>KFC Receipt</h2>
+        <hr>
+        <div class="amount">Subtotal: ₹${subtotal}</div>
+        <div class="amount">Tax (5%): ₹${tax.toFixed(2)}</div>
+        <hr>
+        <div class="final">Final Bill: ₹${finalAmount.toFixed(2)}</div>
+        <p class="thanks">Thank you for visiting KFC 🍗</p>
+      `;
+    }
+</script>
+</body>
+</html>

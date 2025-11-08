@@ -1,0 +1,155 @@
+ /* ---------- COMMON STYLES ---------- */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: #e4002b;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+    }
+    header img {
+      height: 60px;
+    }
+
+    /* ---------- MENU GRID ---------- */
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 15px;
+      transition: transform 0.2s;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+    }
+
+    .item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .item h3 {
+      margin: 10px 0 5px 0;
+      color: #222;
+    }
+
+    .price {
+      color: #e4002b;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 16px;
+      display: block;
+      margin-top: 10px;
+    }
+
+    select.qty-btn {
+      background: #e4002b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    select.qty-btn:hover {
+      background: #b80021;
+    }
+
+    /* ---------- SUBMIT BUTTON ---------- */
+    button.submit-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 28px;
+      background: #e4002b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+
+    button.submit-btn:hover {
+      background: #b80021;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- BILL SECTION ---------- */
+    #bill {
+      max-width: 400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    #bill h2 {
+      color: #e4002b;
+      margin-bottom: 10px;
+    }
+
+    #bill hr {
+      border: none;
+      border-top: 2px solid #eee;
+      margin: 15px 0;
+    }
+
+    #bill .amount {
+      font-size: 18px;
+      color: #333;
+      margin: 8px 0;
+    }
+
+    #bill .final {
+      font-size: 22px;
+      color: #e4002b;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    #bill .thanks {
+      font-size: 14px;
+      color: #777;
+      margin-top: 15px;
+    }
